@@ -31,10 +31,10 @@ class DiceRoll {
             str += '\n';
             total += sum;
         }
-
+        
         if(html) str += '<span class="total">';
         str += `Total: ${total}`;
-        str += ` ${this.modifier < 0 ? '-' : '+'} ${this.modifier} = <span>${total + this.modifier}</span>`;
+        if(this.modifier !== null) str += ` ${this.modifier < 0 ? '-' : '+'} ${this.modifier} = ${total + this.modifier}`;
         if(html) str += '</span>';
         return str;
     }
