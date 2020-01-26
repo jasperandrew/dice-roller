@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Aclonica|Noto+Sans+SC:400,700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: Aclonica;
+    font-size: 70px;
+    text-align: center;
+}
+
+h1 span {
+    display: inline-block;
+    cursor: text !important;
+    transform: rotate(30deg) scale(1.15);
+    position: relative;
+    top: 2px;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 200px);
+}
+
+#input {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dice > div {
+    display: flex;
+}
+
+.die {
+    width: 100px;
+    height: 100px;
+    background-image: url("./img/dice-sheet.png");
+    cursor: pointer;
+}
+
+.die.d4  { background-position: 0px 600px; }
+.die.d6  { background-position: 0px 500px; }
+.die.d8  { background-position: 0px 400px; }
+.die.d10 { background-position: 0px 300px; }
+.die.d12 { background-position: 0px 200px; }
+.die.d20 { background-position: 0px 100px; }
+.die.d4:hover  { background-position: 200px 600px; }
+.die.d6:hover  { background-position: 200px 500px; }
+.die.d8:hover  { background-position: 200px 400px; }
+.die.d10:hover { background-position: 200px 300px; }
+.die.d12:hover { background-position: 200px 200px; }
+.die.d20:hover { background-position: 200px 100px; }
+.die.d4:active  { background-position: 100px 600px; }
+.die.d6:active  { background-position: 100px 500px; }
+.die.d8:active  { background-position: 100px 400px; }
+.die.d10:active { background-position: 100px 300px; }
+.die.d12:active { background-position: 100px 200px; }
+.die.d20:active { background-position: 100px 100px; }
+
+.die.small {
+    width: 50px;
+    height: 50px;
+    background-size: 150px 300px;
+}
+
+.die.d4.small  { background-position: 0px 300px; }
+.die.d6.small  { background-position: 0px 250px; }
+.die.d8.small  { background-position: 0px 200px; }
+.die.d10.small { background-position: 0px 150px; }
+.die.d12.small { background-position: 0px 100px; }
+.die.d20.small { background-position: 0px 50px;  }
+
+#input button {
+    width: 80px;
+    height: 30px;
+}
+
+#set {
+    display: flex;
+}
+
+#output {
+    width: 30%;
+}
+
+#readout {
+    font-family: Noto Sans SC;
+    white-space: pre;
+}
+
+#readout hr {
+    margin-left: 0;
+    width: 100px;
+}
+
+#readout span.total {
+    font-weight: 700;
+}
