@@ -1,40 +1,26 @@
 'use strict';
 
-class Die {
-    constructor(sides) {
-        this.sides = sides;
-        this.result = 0;
-    }
-
-    roll() {
-        this.result = Math.floor(Math.random() * this.sides) + 1;
-        return this.result;
-    }
-
-    toString() {
-        return `d${this.sides}: ${this.result}`;
-    }
-}
-
 class DiceRoll {
     constructor(dice, modifier=null) {
-        this.roll = {};
+        this.dice = {};
         this.modifier = modifier;
-        dice.forEach(die => {
-            if(this.roll[die.sides] === undefined)
-                this.roll[die.sides] = [];
-            this.roll[die.sides].push(die.roll());
-        });
+        for(let sides in dice){
+            if(this.dice[sides] === undefined)
+                this.dice[sides] = [];
+
+            for(let i = 0; i < dice[sides]; i++)
+                this.dice[sides].push(Math.floor(Math.random() * sides) + 1);
+        }
     }
 
     toString(html=false) {
-        let nums = Object.keys(this.roll),
+        let sides_list = Object.keys(this.dice),
             total = 0,
             str = '';
         
-        for(let i = 0; i < nums.length; i++){
-            let sides = nums[i],
-                dice = this.roll[sides],
+        for(let i = 0; i < sides_list.length; i++){
+            let sides = sides_list[i],
+                dice = this.dice[sides],
                 sum = 0;
             str += `${dice.length}d${sides}: `;
             for(let j = 0; j < dice.length; j++){
@@ -45,9 +31,10 @@ class DiceRoll {
             str += '\n';
             total += sum;
         }
+
         if(html) str += '<span class="total">';
         str += `Total: ${total}`;
-        if(this.modifier !== null) str += ` ${this.modifier < 0 ? '-' : '+'} ${this.modifier} = ${total + this.modifier}`;
+        str += ` ${this.modifier < 0 ? '-' : '+'} ${this.modifier} = <span>${total + this.modifier}</span>`;
         if(html) str += '</span>';
         return str;
     }
@@ -55,39 +42,40 @@ class DiceRoll {
 
 class DiceRoller {
     constructor() {
-        this.dice = [];
+        this.dice = {};
         this.modifier = 0;
         this.history = [];
     }
 
     addDie(sides) {
-        if(sides < 1) console.error('[Die error] Invalid number of sides (input: ' + sides + ')');
-        else this.dice.push(new Die(sides));
+        if(sides < 1){
+            console.error('[Die error] Invalid number of sides (input: ' + sides + ')');
+        }else{
+            if(this.dice[sides] === undefined)
+                this.dice[sides] = 0;
+            this.dice[sides] += 1;
+        }
     }
 
     removeDie(sides) {
-        for(let i in this.dice){
-            if(this.dice[i].sides === sides){
-                this.dice.splice(i, 1);
-                break;
-            }
-        }
+        if(this.dice[sides] === undefined || this.dice[sides] < 1) return;
+        this.dice[sides] -= 1;
     }
 
     setModifier(n) { this.modifier = n; }
 
     removeModifier() { this.modifier = null; }
 
+    clearDice() { this.dice = []; }
+
+    clearHistory() { this.history = []; }
+
     roll() {
-        if(this.dice.length < 1) return null;
+        if(Object.keys(this.dice).length < 1) return null;
         let roll = new DiceRoll(this.dice, this.modifier);
         this.history.unshift(roll);
         return roll;
     }
-
-    clearDice() { this.dice = []; }
-
-    clearHistory() { this.history = []; }
 
     toString(i=-1, html=false) {
         if(i < 0) i = this.history.length;
@@ -103,9 +91,9 @@ class DiceRoller {
 }
 
 const RLLR = new DiceRoller();
-
 const UI = {
     elems: {
+        mod: document.querySelector('#dice input'),
         set: document.querySelector('#set'),
         out: document.querySelector('#readout')
     },
@@ -120,7 +108,15 @@ const UI = {
         this.render();
     },
 
+    setModifier() {
+        if(this.elems.mod.reportValidity() && this.elems.mod.value !== '')
+            RLLR.setModifier(Number.parseInt(this.elems.mod.value));
+        else
+            RLLR.removeModifier();
+    },
+
     rollDice() {
+        this.setModifier(this.elems.mod.value);
         RLLR.roll();
         this.render();
     },
@@ -132,8 +128,11 @@ const UI = {
 
     render() {
         let html = '';
-        let dice = RLLR.dice.sort((a,b) => a.sides - b.sides);
-        RLLR.dice.forEach(die => html += `<div onclick="UI.removeDie(${die.sides})"></div>`);
+        for(let d in RLLR.dice){
+            if(RLLR.dice[d] > 0)
+                html += `<div onclick="UI.removeDie(${d})">` +
+                        `${RLLR.dice[d]} <span>×</span> <span class="die d${d}"></span></div>`;
+        }
         this.elems.set.innerHTML = html;
         this.elems.out.innerHTML = RLLR.toHTML();
     }

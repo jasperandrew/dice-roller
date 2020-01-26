@@ -21,15 +21,16 @@
                     <div class="die d12" onclick="UI.addDie(12);"></div>
                     <div class="die d20" onclick="UI.addDie(20);"></div>    
                 </div>
+                <input type="number" placeholder="Mod"/>
             </div>
             <div id="set"></div>
             <div id="buttons">
-                <button id="roll" onclick="UI.rollDice()">ROLL</button>
-                <button id="roll" onclick="UI.clearDice()">CLEAR</button>
+                <button id="roll" onclick="UI.rollDice()">↬</button>
+                <button id="roll" onclick="UI.clearDice()">↶</button>
             </div>
             <div id="output">
                 <div id="readout"></div>
-            </div>    
+            </div>
         </main>
         <div id="options"></div>
         <script src="dice-roller.js"></script>
