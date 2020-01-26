@@ -112,7 +112,7 @@ main {
     text-align: end;
     width: 230px;
     cursor: pointer;
-    height: 75px;
+    height: 65px;
 }
 
 #set span:first-child {
@@ -123,10 +123,10 @@ main {
 
 #set .die {
     display: inline-block;
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
     position: relative;
-    top: 20px;
+    top: 14px;
 }
 
 #buttons {
