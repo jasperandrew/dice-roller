@@ -6,31 +6,32 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Dice R<span class="die d20 small"></span>ller</h1>
+        <h1>Dice R<span class="die d20"></span>ller</h1>
         <main>
-            <div id="input">
-                <div id="dice">
-                    <div>
-                        <div class="die d4"  onclick="UI.addDie(4);"></div>
-                        <div class="die d6"  onclick="UI.addDie(6);"></div>
-                        <div class="die d8"  onclick="UI.addDie(8);"></div>    
-                    </div>
-                    <div>
-                        <div class="die d10" onclick="UI.addDie(10);"></div>
-                        <div class="die d12" onclick="UI.addDie(12);"></div>
-                        <div class="die d20" onclick="UI.addDie(20);"></div>    
-                    </div>
+            <div id="dice">
+                <div>
+                    <div class="die d4"  onclick="UI.addDie(4);"></div>
+                    <div class="die d6"  onclick="UI.addDie(6);"></div>
                 </div>
-        
+                <div>
+                    <div class="die d8"  onclick="UI.addDie(8);"></div>    
+                    <div class="die d10" onclick="UI.addDie(10);"></div>
+                </div>
+                <div>
+                    <div class="die d12" onclick="UI.addDie(12);"></div>
+                    <div class="die d20" onclick="UI.addDie(20);"></div>    
+                </div>
+            </div>
+            <div id="set"></div>
+            <div id="buttons">
                 <button id="roll" onclick="UI.rollDice()">ROLL</button>
                 <button id="roll" onclick="UI.clearDice()">CLEAR</button>
-                
-                <div id="set"></div>    
             </div>
             <div id="output">
                 <div id="readout"></div>
             </div>    
         </main>
+        <div id="options"></div>
         <script src="dice-roller.js"></script>
     </body>
 </html>

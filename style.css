@@ -5,95 +5,115 @@
 body {
     margin: 0;
     padding: 0;
+    color: #202020;
 }
+
+.die {
+    background-image: url("./img/dice-sheet.png");
+    background-size: 300%;
+    background-position-x: 0%;
+}
+
+.die.d4  { background-position-y: 0%; }
+.die.d6  { background-position-y: 20%; }
+.die.d8  { background-position-y: 40%; }
+.die.d10 { background-position-y: 60%; }
+.die.d12 { background-position-y: 80%; }
+.die.d20 { background-position-y: 100%; }
 
 h1 {
     font-family: Aclonica;
     font-size: 70px;
     text-align: center;
+    height: 70px;
+    margin: 40px 0 40px 0;
 }
 
 h1 span {
+    width: 51px;
+    height: 51px;
+    background-position: 0px 50px;
     display: inline-block;
-    cursor: text !important;
-    transform: rotate(30deg) scale(1.15);
+    cursor: text;
+    transform: rotate(30deg);
     position: relative;
-    top: 2px;
+    top: 4px;
+    margin: 0 -3px;
 }
 
 main {
     display: flex;
     width: 100%;
-    height: calc(100% - 200px);
-}
-
-#input {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: calc(100vh - 350px);
 }
 
 #dice {
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #dice > div {
     display: flex;
 }
 
-.die {
-    width: 100px;
-    height: 100px;
-    background-image: url("./img/dice-sheet.png");
+#dice .die {
+    width: 150px;
+    height: 150px;
     cursor: pointer;
 }
 
-.die.d4  { background-position: 0px 600px; }
-.die.d6  { background-position: 0px 500px; }
-.die.d8  { background-position: 0px 400px; }
-.die.d10 { background-position: 0px 300px; }
-.die.d12 { background-position: 0px 200px; }
-.die.d20 { background-position: 0px 100px; }
-.die.d4:hover  { background-position: 200px 600px; }
-.die.d6:hover  { background-position: 200px 500px; }
-.die.d8:hover  { background-position: 200px 400px; }
-.die.d10:hover { background-position: 200px 300px; }
-.die.d12:hover { background-position: 200px 200px; }
-.die.d20:hover { background-position: 200px 100px; }
-.die.d4:active  { background-position: 100px 600px; }
-.die.d6:active  { background-position: 100px 500px; }
-.die.d8:active  { background-position: 100px 400px; }
-.die.d10:active { background-position: 100px 300px; }
-.die.d12:active { background-position: 100px 200px; }
-.die.d20:active { background-position: 100px 100px; }
+#dice .die:hover  { background-position-x: 50%; }
+#dice .die:active { background-position-x: 100%; }
 
-.die.small {
-    width: 50px;
-    height: 50px;
-    background-size: 150px 300px;
+#dice .die:hover::after {
+    display: flex;
+    font-family: Aclonica;
+    font-size: 50px;
+    color: #fff;
+    opacity: 0.9;
+    height: 100%; 
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
-.die.d4.small  { background-position: 0px 300px; }
-.die.d6.small  { background-position: 0px 250px; }
-.die.d8.small  { background-position: 0px 200px; }
-.die.d10.small { background-position: 0px 150px; }
-.die.d12.small { background-position: 0px 100px; }
-.die.d20.small { background-position: 0px 50px;  }
+#dice .die.d4:hover::after  { content: '4'; top: 13px; right: 3px; }
+#dice .die.d6:hover::after  { content: '6'; top: 5px; right: 2px; }
+#dice .die.d8:hover::after  { content: '8'; top: 1px; }
+#dice .die.d10:hover::after { content: '10'; top: -9px; }
+#dice .die.d12:hover::after { content: '12'; top: 8px; }
+#dice .die.d20:hover::after { content: '20'; top: 5px; }
 
-#input button {
+#set {
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#set .die {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#buttons {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttons button {
     width: 80px;
     height: 30px;
 }
 
-#set {
-    display: flex;
-}
-
 #output {
-    width: 30%;
+    width: 20%;
 }
 
 #readout {
@@ -108,4 +128,8 @@ main {
 
 #readout span.total {
     font-weight: 700;
+}
+
+#options {
+    height: 200px;
 }
