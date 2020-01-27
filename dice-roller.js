@@ -128,6 +128,11 @@ const UI = {
         this.render();
     },
 
+    clearHistory() {
+        RLLR.clearHistory();
+        this.render();
+    },
+
     toggleMenu() {
         this.elems.nav.classList.toggle('open');
         this.elems.screen.classList.toggle('on');

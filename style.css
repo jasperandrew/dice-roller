@@ -137,6 +137,7 @@ main {
     border: 1px solid #bdbdbd;
     padding: 7px;
     height: 100%;
+    position: relative;
 }
 
 #readout hr {
@@ -150,6 +151,23 @@ main {
 
 #readout span.total span {
     font-weight: 900;
+}
+
+#output button {
+    border-radius: 100%;
+    height: 35px;
+    width: 35px;
+    border: none;
+    color: #fff;
+    font-weight: 900;
+    font-size: 20px;
+    cursor: pointer;
+    background: #000;
+    opacity: 0.1;
+    position: absolute;
+    right: 50px;
+    z-index: 1;
+    margin: 7px;
 }
 
 nav {
