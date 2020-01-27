@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Aclonica|Noto+Sans+SC:100,300,400,500,700,900&display=swap');
 
 * {
     box-sizing: border-box;
@@ -216,6 +216,7 @@ nav.open {
 
 h1 {
     font-size: 43px;
+    font-weight: 300;
     text-align: center;
     margin: 16px 0;
 }
