@@ -65,12 +65,12 @@ main {
     position: relative;
 }
 
-#dice .die.d4:hover::after  { content: '4'; top: 13px; right: 3px; }
-#dice .die.d6:hover::after  { content: '6'; top: 5px; right: 2px; }
-#dice .die.d8:hover::after  { content: '8'; top: 1px; }
-#dice .die.d10:hover::after { content: '10'; top: 3px; }
-#dice .die.d12:hover::after { content: '12'; top: 8px; }
-#dice .die.d20:hover::after { content: '20'; top: 5px; }
+#dice .die.d4:hover::after  { content: '4'; top: 15px; right: 3px; }
+#dice .die.d6:hover::after  { content: '6'; top: 5px; right: 1px; }
+#dice .die.d8:hover::after  { content: '8'; top: 2px; }
+#dice .die.d10:hover::after { content: '10'; }
+#dice .die.d12:hover::after { content: '12'; top: 4px; }
+#dice .die.d20:hover::after { content: '20'; }
 
 #dice input {
     width: 100px;
