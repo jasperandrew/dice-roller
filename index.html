@@ -6,22 +6,24 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <nav></nav>
-        <div id="menubtn" onclick="UI.toggleMenu()"></div>
+        <nav>
+            <h1>Dice R<span class="die d20"></span>ller</h1>
+        </nav>
+        <div id="menubtn" onclick="UI.toggleMenu()">≡</div>
         <div id="screen" onclick="UI.toggleMenu()"></div>
         <main>
             <div id="dice">
                 <div>
-                    <div class="die d4"  onclick="UI.addDie(4);"></div>
-                    <div class="die d6"  onclick="UI.addDie(6);"></div>
+                    <div class="die d4"  onclick="UI.addDie(4)"></div>
+                    <div class="die d6"  onclick="UI.addDie(6)"></div>
                 </div>
                 <div>
-                    <div class="die d8"  onclick="UI.addDie(8);"></div>    
-                    <div class="die d10" onclick="UI.addDie(10);"></div>
+                    <div class="die d8"  onclick="UI.addDie(8)"></div>    
+                    <div class="die d10" onclick="UI.addDie(10)"></div>
                 </div>
                 <div>
-                    <div class="die d12" onclick="UI.addDie(12);"></div>
-                    <div class="die d20" onclick="UI.addDie(20);"></div>    
+                    <div class="die d12" onclick="UI.addDie(12)"></div>
+                    <div class="die d20" onclick="UI.addDie(20)"></div>    
                 </div>
                 <input type="number" placeholder="Mod"/>
             </div>

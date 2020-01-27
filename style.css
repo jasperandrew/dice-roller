@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Aclonica|Noto+Sans+SC:400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900&display=swap');
 
 * {
     box-sizing: border-box;
@@ -10,7 +10,6 @@ body {
     height: 100vh;
     margin: 0;
     padding: 50px;
-    color: #202020;
 }
 
 .die {
@@ -190,9 +189,13 @@ nav.open {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     z-index: 1;
+    cursor: pointer;
+    font-size: 50px;
+    padding: 0 10px;
+    box-sizing: content-box;
 }
 
 #screen {
@@ -209,4 +212,22 @@ nav.open {
 
 #screen.on {
     display: block;
+}
+
+h1 {
+    font-size: 43px;
+    text-align: center;
+    margin: 16px 0;
+}
+
+h1 span {
+    width: 27px;
+    height: 27px;
+    background-position: 0px 50px;
+    display: inline-block;
+    cursor: text;
+    transform: rotate(30deg);
+    position: relative;
+    top: 2px;
+    margin: 0 -2px;
 }
