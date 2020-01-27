@@ -6,8 +6,10 @@
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
     margin: 0;
-    padding: 0;
+    padding: 50px;
     color: #202020;
 }
 
@@ -24,30 +26,10 @@ body {
 .die.d12 { background-position-y: 80%; }
 .die.d20 { background-position-y: 100%; }
 
-h1 {
-    font-family: Aclonica;
-    font-size: 70px;
-    text-align: center;
-    height: 70px;
-    margin: 40px 0 40px 0;
-}
-
-h1 span {
-    width: 51px;
-    height: 51px;
-    background-position: 0px 50px;
-    display: inline-block;
-    cursor: text;
-    transform: rotate(30deg);
-    position: relative;
-    top: 4px;
-    margin: 0 -3px;
-}
-
 main {
     display: flex;
     width: 100%;
-    height: calc(100vh - 250px);
+    height: 80%;
 }
 
 #dice {
@@ -86,7 +68,7 @@ main {
 #dice .die.d4:hover::after  { content: '4'; top: 13px; right: 3px; }
 #dice .die.d6:hover::after  { content: '6'; top: 5px; right: 2px; }
 #dice .die.d8:hover::after  { content: '8'; top: 1px; }
-#dice .die.d10:hover::after { content: '10'; top: -9px; }
+#dice .die.d10:hover::after { content: '10'; top: 3px; }
 #dice .die.d12:hover::after { content: '12'; top: 8px; }
 #dice .die.d20:hover::after { content: '20'; top: 5px; }
 
@@ -154,7 +136,6 @@ main {
     white-space: pre-wrap;
     border: 1px solid #bdbdbd;
     padding: 7px;
-    margin-right: 32px;
     height: 100%;
 }
 
@@ -171,6 +152,6 @@ main {
     font-weight: 900;
 }
 
-#options {
-    height: 100px;
+section {
+    height: 20%;
 }
