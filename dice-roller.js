@@ -31,7 +31,7 @@ class DiceRoll {
             str += '\n';
             total += sum;
         }
-        
+
         if(html) str += '<span class="total">';
         str += `Total: ${total}`;
         if(this.modifier !== null) str += ` ${this.modifier < 0 ? '-' : '+'} ${this.modifier} = ${total + this.modifier}`;
@@ -95,7 +95,9 @@ const UI = {
     elems: {
         mod: document.querySelector('#dice input'),
         set: document.querySelector('#set'),
-        out: document.querySelector('#readout')
+        out: document.querySelector('#readout'),
+        nav: document.querySelector('nav'),
+        screen: document.querySelector('#screen')
     },
 
     addDie(sides) {
@@ -124,6 +126,11 @@ const UI = {
     clearDice() {
         RLLR.clearDice();
         this.render();
+    },
+
+    toggleMenu() {
+        this.elems.nav.classList.toggle('open');
+        this.elems.screen.classList.toggle('on');
     },
 
     render() {
