@@ -22,6 +22,7 @@ class DiceRoll {
             let sides = sides_list[i],
                 dice = this.dice[sides],
                 sum = 0;
+            if(dice.length < 1) continue;
             str += `${dice.length}d${sides}: `;
             for(let j = 0; j < dice.length; j++){
                 str += dice[j] + (j < dice.length-1 ? ', ' : ' ');
