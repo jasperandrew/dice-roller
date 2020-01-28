@@ -61,6 +61,7 @@ class DiceRoller {
     removeDie(sides) {
         if(this.dice[sides] === undefined || this.dice[sides] < 1) return;
         this.dice[sides] -= 1;
+        if(this.dice[sides] <= 0) this.dice[sides] = undefined;
     }
 
     setModifier(n) { this.modifier = n; }
@@ -72,10 +73,18 @@ class DiceRoller {
     clearHistory() { this.history = []; }
 
     roll() {
-        if(Object.keys(this.dice).length < 1) return null;
+        if(this.isEmpty()) return null;
         let roll = new DiceRoll(this.dice, this.modifier);
         this.history.unshift(roll);
         return roll;
+    }
+
+    isEmpty() {
+        let keys = Object.keys(this.dice);
+        for(let i in keys){
+            if(this.dice[keys[i]] !== undefined) return false;
+        }
+        return true;
     }
 
     toString(i=-1, html=false) {
