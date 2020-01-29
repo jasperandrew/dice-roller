@@ -24,6 +24,10 @@ body {
 .die.d10 { background-position-y: 60%; }
 .die.d12 { background-position-y: 80%; }
 .die.d20 { background-position-y: 100%; }
+.die.d60 {
+    background-image: url("./img/d60.png");
+    background-size: 100%;
+}
 
 main {
     display: flex;
